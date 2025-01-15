@@ -1,11 +1,11 @@
+
 /* Requires the Docker Pipeline plugin */
-Jenkinsfile (Dòng khai báo)
 pipeline {
-    agent any
+    agent { docker { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
     }
